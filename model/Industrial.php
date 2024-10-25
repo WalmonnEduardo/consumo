@@ -12,9 +12,18 @@ class Industrial implements IConsumidorEnergia
         }
         else
         {
-            $r = $this->consumo*1.8;
-            $this->consumo -= 500;
-            $r += $this->consumo*2.3;
+            $r = 0;
+            for($i = 0 ;$i < $this->consumo ;$i++)
+            {
+                if($i < 500)
+                {
+                    $r += 1.8;
+                }
+                else
+                {
+                    $r += 2.3;
+                }
+            }
             return $r;
         }
     }
@@ -25,7 +34,6 @@ class Industrial implements IConsumidorEnergia
     {
         return $this->consumo;
     }
-
     /**
      * Set the value of consumo
      */
