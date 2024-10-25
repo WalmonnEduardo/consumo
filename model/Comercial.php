@@ -12,9 +12,18 @@ class Comercial implements IConsumidorEnergia
         }
         else
         {
-            $r = $this->consumo*1.45;
-            $this->consumo -= 100;
-            $r += $this->consumo*1.6;
+            $r = 0;
+            for($i = 0 ;$i < $this->consumo ;$i++)
+            {
+                if($i < 100)
+                {
+                    $r += 1.45;
+                }
+                else
+                {
+                    $r += 1.6;
+                }
+            }
             return $r;
         }
     }
